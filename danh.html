@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brainwave.io</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:Gilroy,Arial,sans-serif;
+    color:#161C2D;
+}
+button{
+    font-family:inherit;
+}
+.page{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow:hidden;
+}
+.page1{
+    width:100%;
+    max-width:1601px;
+    background-image:url("Bitmap.png");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.header{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+.logo-menu{
+    width:90%;
+    min-height:90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+}
+.logo a{
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:-1px;
+    color:#161C2D;
+    text-decoration:none;
+}
+.menu{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+.menu a{
+    text-decoration:none;
+    color:#161C2D;
+    font-size:15px;
+    font-weight:700;
+}
+.nut{
+    width:168px;
+    height:45px;
+    background:#473BF0;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+.hero{
+    width:80%;
+    min-height:636px;
+    display:flex;
+    justify-content:space-between;
+    align-items:stretch;
+    flex-wrap:wrap;
+    gap:50px;
+}
+.hero-trai{
+    flex:1 1 400px;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    gap:15px;
+}
+.hero-trai h1{
+    width:100%;
+    max-width:473px;
+    font-size:48px;
+    font-weight:700;
+    line-height:58px;
+    letter-spacing:-1.8px;
+}
+.hero-trai p{
+    width:100%;
+    max-width:434px;
+    font-size:19px;
+    line-height:32px;
+    letter-spacing:-0.2px;
+    color:rgba(22,28,45,0.7);
+}
+.hero-nut{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:28px;
+    padding-top:15px;
+}
+.hero-nut .nut{
+    width:200px;
+    height:59px;
+    font-size:17px;
+}
+.hero-watch{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.hero-watch img{
+    width:13px;
+    height:13px;
+    object-fit:contain;
+}
+.hero-watch span{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+.hero-phai{
+    flex:0 1 408px;
+    min-width:0;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+}
+.hero-phai img{
+    display:block;
+    width:100%;
+    max-width:408px;
+    height:auto;
+    object-fit:contain;
+}
+.thanh-video{
+    width:100%;
+    max-width:1601px;
+    min-height:96px;
+    background:#161C2D;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    text-align:center;
+    font-size:17px;
+    line-height:29px;
+    letter-spacing:-0.2px;
+    padding:12px;
+}
+.thanh-video img{
+    width:20px;
+    height:20px;
+    object-fit:contain;
+}
+.thanh-video a{
+    color:white;
+    text-decoration:underline;
+}
+.page2{
+    width:100%;
+    max-width:1601px;
+    min-height:650px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 20px;
+}
+.experts{
+    width:100%;
+    max-width:1101px;
+    min-height:422px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:40px;
+}
+.experts-trai{
+    flex:1 1 250px;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:25px;
+}
+.experts-trai h2{
+    font-size:30px;
+    line-height:1.3;
+}
+.experts-trai p{
+    font-size:16px;
+    line-height:1.7;
+    color:#6D7180;
+}
+.experts-anh{
+    flex:0 1 308px;
+    min-width:0;
+    display:flex;
+}
+.experts-anh img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:308 / 419;
+    object-fit:cover;
+}
+.experts-phai{
+    flex:1 1 250px;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+.thongke{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+.thongke h3{
+    font-size:32px;
+    font-weight:700;
+    line-height:44px;
+    letter-spacing:-1.2px;
+}
+.thongke p{
+    font-size:19px;
+    line-height:32px;
+    letter-spacing:-0.2px;
+    color:rgba(22,28,45,0.7);
+}
+.page3{
+    width:100%;
+    max-width:1601px;
+    min-height:769px;
+    background:#F4F7FA;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:75px;
+    padding:70px 20px;
+}
+.services-title{
+    width:90%;
+    max-width:769px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:20px;
+}
+.services-title h2{
+    font-size:36px;
+    line-height:48px;
+    letter-spacing:-1.2px;
+}
+.services-title p{
+    max-width:550px;
+    font-size:19px;
+    line-height:32px;
+    letter-spacing:-0.2px;
+    color:rgba(22,28,45,0.7);
+}
+.services{
+    width:100%;
+    max-width:1112px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:31px;
+}
+.service-item{
+    flex:1 1 250px;
+    min-width:0;
+    max-width:350px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:22px;
+}
+.service-item h3{
+    font-size:21px;
+    line-height:32px;
+    letter-spacing:-0.5px;
+}
+.service-item>img{
+    width:100%;
+    height:165px;
+    object-fit:cover;
+    border:1px solid #E7E9ED;
+    border-radius:10px;
+}
+.service-item p{
+    font-size:17px;
+    line-height:29px;
+    color:rgba(22,28,45,0.7);
+}
+.service-item a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:#473BF0;
+    font-size:17px;
+    font-weight:700;
+}
+.service-item a img{
+    width:16px;
+    height:16px;
+    object-fit:contain;
+}
+.page4{
+    width:100%;
+    max-width:1601px;
+    height:550px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    overflow:hidden;
+    padding:0 24px;
+}
+.choose{
+    width:100%;
+    max-width:1116px;
+    height:550px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+.choose-anh{
+    flex:1 1 389px;
+    max-width:470px;
+    height:550px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    position:relative;
+}
+.choose-anh img{
+    position:absolute;
+}
+.tron-xanh{
+    width:312px;
+    height:312px;
+    max-width:80%;
+    left:0;
+    bottom:100px;
+    z-index:1;
+}
+.nguoi-nam{
+    width:389px;
+    height:auto;
+    max-width:100%;
+    max-height:none;
+    object-fit:contain;
+    left:37px;
+    bottom:-230px;
+    z-index:2;
+}
+.choose-noidung{
+    flex:1 1 350px;
+    max-width:470px;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+}
+.choose-noidung h2{
+    width:100%;
+    max-width:433px;
+    font-size:36px;
+    font-weight:700;
+    line-height:48px;
+    letter-spacing:-1.2px;
+    color:#161C2D;
+}
+.choose-noidung p{
+    max-width:450px;
+    font-size:17px;
+    line-height:29px;
+    color:rgba(22,28,45,0.7);
+}
+.choose-list{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:35px;
+    padding-top:15px;
+}
+.choose-cot{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+.choose-item{
+    min-height:32px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.choose-item img{
+    width:16px;
+    height:16px;
+    object-fit:contain;
+}
+.choose-item span{
+    font-size:15px;
+    font-weight:700;
+}
+.page5{
+    width:100%;
+    max-width:1600px;
+    min-height:580px;
+    background-image:
+        linear-gradient(
+            rgba(22,28,45,0.5133),
+            rgba(22,28,45,0.5133)
+        ),
+        url("./maytinh.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 20px;
+}
+.video-noidung{
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:25px;
+    color:white;
+}
+.play{
+    width:98px;
+    height:98px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+}
+.play img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+.video-noidung h2{
+    font-size:36px;
+    line-height:1.3;
+}
+.video-noidung p{
+    max-width:550px;
+    font-size:16px;
+    line-height:1.7;
+    color:#E5E5E5;
+}
+.page6{
+    width:100%;
+    max-width:1601px;
+    min-height:740px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:65px;
+    padding:60px 20px;
+}
+.review-title{
+    width:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:20px;
+}
+.review-title h2{
+    font-size:36px;
+}
+.review-title p{
+    max-width:550px;
+    font-size:16px;
+    line-height:1.7;
+    color:#6D7180;
+}
+.reviews{
+    width:80%;
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    flex-wrap:wrap;
+    gap:30px;
+}
+.review-item{
+    flex:1 1 250px;
+    min-width:0;
+    min-height:300px;
+    border:1px solid #E7E9ED;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:30px;
+    padding:30px;
+}
+.review-item>img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.review-item p{
+    flex:1;
+    font-size:16px;
+    line-height:1.7;
+}
+.review-user{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+.review-user b{
+    font-size:14px;
+}
+.review-user span{
+    font-size:13px;
+    color:#6D7180;
+}
+.page7{
+    width:100%;
+    max-width:1601px;
+    min-height:170px;
+    background:#68D585;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:35px;
+    padding:25px;
+}
+.page7 h2{
+    font-size:30px;
+    color:white;
+    text-align:center;
+}
+.page7 button{
+    width:190px;
+    height:48px;
+    background:white;
+    color:#161C2D;
+    border:none;
+    border-radius:7px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+}
+.page8{
+    width:100%;
+    max-width:1601px;
+    min-height:480px;
+    background:#161C2D;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+}
+.footer-noidung{
+    width:80%;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:80px;
+}
+.footer-trai{
+    flex:1 1 200px;
+    max-width:260px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:30px;
+}
+.footer-logo{
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:-1px;
+    color:white;
+    text-decoration:none;
+}
+.footer-trai p{
+    font-size:15px;
+    line-height:1.7;
+    color:#B4B7C1;
+}
+.footer-social{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+.footer-social a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.footer-social img{
+    width:18px;
+    height:18px;
+    object-fit:contain;
+}
+.footer-phai{
+    flex:3 1 450px;
+    min-width:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:35px;
+}
+.footer-cot{
+    flex:1 1 110px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+}
+.footer-cot span{
+    color:#8C90A0;
+    font-size:14px;
+}
+.footer-cot a{
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+}
+.footer-cot a:hover{
+    color:#68D585;
+}
+</style>
+</head>
+<body>
+<div class="page">
+    <div class="page1">
+        <header class="header">
+            <div class="logo-menu">
+                <div class="logo">
+                    <a href="#">Brainwave.io</a>
+                </div>
+                <div class="menu">
+                    <a href="#">Demos</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Support</a>
+                    <a href="#">Contact</a>
+                    <button class="nut">Get A Free Quote</button>
+                </div>
+            </div>
+        </header>
+        <div class="hero">
+            <div class="hero-trai">
+                <h1>Make your business<br>powerful with Shade.</h1>
+                <p>With lots of unique blocks, you can easily build a page without coding. Build your next consultancy website within few minutes.</p>
+                <div class="hero-nut">
+                    <button class="nut">Get A Free Quote</button>
+                    <div class="hero-watch">
+                        <img src="watch-icon.png" alt="">
+                        <span>WATCH HOW WE CAN HELP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-phai">
+                <img src="phunu.png" alt="Business woman">
+            </div>
+        </div>
+    </div>
+    <div class="thanh-video">
+        <img src="icon.png" alt="">
+        <p>Interested how our software works for you? <a href="#">Watch our 1 minute video</a></p>
+    </div>
+    <div class="page2">
+        <div class="experts">
+            <div class="experts-trai">
+                <h2>Experienced experts are<br>giving advices.</h2>
+                <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+                <button class="nut">Learn how we work</button>
+            </div>
+            <div class="experts-anh">
+                <img src="IMG.png" alt="Experienced experts">
+            </div>
+            <div class="experts-phai">
+                <div class="thongke">
+                    <h3>1M+</h3>
+                    <p>Customers visit Albino every month to get their service done.</p>
+                </div>
+                <div class="thongke">
+                    <h3>92%</h3>
+                    <p>Satisfaction rate comes from our awesome customers.</p>
+                </div>
+                <div class="thongke">
+                    <h3>4.9/5.0</h3>
+                    <p>Average customer ratings we have got all over internet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page3">
+        <div class="services-title">
+            <h2>Services we offer for you</h2>
+            <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+        </div>
+        <div class="services">
+            <div class="service-item">
+                <h3>Digital Marketing</h3>
+                <img src="dienthoai.png" alt="Digital Marketing">
+                <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+                <a href="#">Learn more <img src="muiten.png" alt=""></a>
+            </div>
+            <div class="service-item">
+                <h3>Business Growth</h3>
+                <img src="cây.png" alt="Business Growth">
+                <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+                <a href="#">Learn more <img src="muiten.png" alt=""></a>
+            </div>
+            <div class="service-item">
+                <h3>Content Marketing</h3>
+                <img src="group.png" alt="Content Marketing">
+                <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+                <a href="#">Learn more <img src="muiten.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="page4">
+        <div class="choose">
+            <div class="choose-anh">
+                <img class="tron-xanh" src="xanh.png" alt="">
+                <img class="nguoi-nam" src="man standing.png" alt="Business man">
+            </div>
+            <div class="choose-noidung">
+                <h2>Reasons you should choose<br>us to grow today.</h2>
+                <p>We share common trends and strategies for improving your rental income and making sure you stay in high demand.</p>
+                <div class="choose-list">
+                    <div class="choose-cot">
+                        <div class="choose-item">
+                            <img src="check.png" alt="">
+                            <span>Fully Responsive</span>
+                        </div>
+                        <div class="choose-item">
+                            <img src="check.png" alt="">
+                            <span>Easy to Edit</span>
+                        </div>
+                    </div>
+                    <div class="choose-cot">
+                        <div class="choose-item">
+                            <img src="check.png" alt="">
+                            <span>Beautiful Layouts</span>
+                        </div>
+                        <div class="choose-item">
+                            <img src="check.png" alt="">
+                            <span>Google Font Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page5">
+        <div class="video-noidung">
+            <button class="play" aria-label="Play video">
+                <img src="button.png" alt="Play">
+            </button>
+            <h2>How do we help you to grow?</h2>
+            <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+        </div>
+    </div>
+    <div class="page6">
+        <div class="review-title">
+            <h2>What people say about us</h2>
+            <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+        </div>
+        <div class="reviews">
+            <div class="review-item">
+                <img src="1.png" alt="Customer">
+                <p>"You made it so simple. My new site is so much faster and easier to work with than my old site."</p>
+                <div class="review-user">
+                    <b>Isabelle Chime</b>
+                    <span>Graphic Designer</span>
+                </div>
+            </div>
+            <div class="review-item">
+                <img src="2.png" alt="Customer">
+                <p>"Simply the best. Better than all the rest. I'd recommend this product to beginners and advanced users."</p>
+                <div class="review-user">
+                    <b>Curtis Rhode</b>
+                    <span>Digital Marketer</span>
+                </div>
+            </div>
+            <div class="review-item">
+                <img src="3.png" alt="Customer">
+                <p>"Must have book for all, who want to be Product Designer or Interaction Designer."</p>
+                <div class="review-user">
+                    <b>Lucas Martin</b>
+                    <span>Co Founder</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page7">
+        <h2>Ready to get started?</h2>
+        <button>Get A Free Quote</button>
+    </div>
+    <div class="page8">
+        <div class="footer-noidung">
+            <div class="footer-trai">
+                <a class="footer-logo" href="#">Brainwave.io</a>
+                <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
+                <div class="footer-social">
+                    <a href="#"><img src="Path.png" alt="Twitter"></a>
+                    <a href="#"><img src="logo-facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="logo-instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="logo-linkedin.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="footer-phai">
+                <div class="footer-cot">
+                    <span>Company</span>
+                    <a href="#">About us</a>
+                    <a href="#">Contact us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                </div>
+                <div class="footer-cot">
+                    <span>Product</span>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">News</a>
+                    <a href="#">Help desk</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="footer-cot">
+                    <span>Services</span>
+                    <a href="#">Digital Marketing</a>
+                    <a href="#">Content Writing</a>
+                    <a href="#">SEO for Business</a>
+                    <a href="#">UI Design</a>
+                </div>
+                <div class="footer-cot">
+                    <span>Legal</span>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Return Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
